@@ -1,21 +1,24 @@
-import pygame.key
-from pygame.sprite import Sprite
-from pygame import Surface, image, transform
-import random
+import pygame
+from os import path
 import config
-running = True
 
+WIDTH = 800
+HEIGHT = 450
 
-screen = pygame.display.set_mode((config.WIDTH, config.HEIGHT))
+window = pygame.display.set_mode((WIDTH, HEIGHT))
 clock = pygame.time.Clock()
 
-image = image.load('assets/karta.png')
-rect = image.get_rect()
+img = pygame.image.load('карта.png')
 
-while running:
-    clock.tick(config.FRAMERATE)
+play = True
+while play:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            running = False
+            play = False
+
+    window.blit(img, (0,0))
+
+    pygame.display.update()
+    clock.tick()
 
 pygame.quit()
