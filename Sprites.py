@@ -1,28 +1,26 @@
 import random
-
+import pygame as pg
 from pygame.sprite import Sprite
 from pygame import Surface
 import config
 
 
-class Player(Sprite):
-    def __init__(self):
-        Sprite.__init__(self)
-        self.image = Surface((50, 50))
-        self.image.fill(config.COLOR['BLUE'])
-        self.rect = self.image.get_rect()
-        self.rect.center = (config.WIDTH / 2, config.HEIGHT / 2)
+class Country(Sprite):
+    def __init__(self, k_infected , population , infected):
+        self.k_infected = k_infected
+        self.population = population
+        self.infected = infected
+        russia = {'k_infected':(0.9), 'population':(145478097), 'infected':(0)}
+        germany ={'k_infected':(0.7)}
+        usa = {'k_infected':(0.85)}
+        kanada = {'k_infected':(0.75)}
+        australia = {'k_infected':(0.6)}
+        nigeria = {'k_infected':(0.4)}
+        china = {'k_infected':(0.9)}
+        brazilia = {'k_infected':(0.7)}
 
-        self.speed_x = 30
-        self.speed_y = 20
 
-    def update(self):
-        self.rect.x += self.speed_x
-        self.rect.y += self.speed_y
-        if self.rect.x > config.WIDTH - self.rect.width or self.rect.x < 0:
-            self.speed_x = -self.speed_x
-            self.speed_x *= 0.7
+        def update(self):
+            if self.population/2 < self.infected:
+                self.infected -= 5
 
-        if self.rect.y > config.HEIGHT - self.rect.height or self.rect.y < 0:
-            self.speed_y = -self.speed_y
-            self.speed_y *= 0.7

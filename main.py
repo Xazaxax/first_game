@@ -1,5 +1,5 @@
 import pygame
-from os import path
+import Sprites
 import config
 
 WIDTH = 800
@@ -12,6 +12,7 @@ img = pygame.image.load('карта.png')
 
 play = True
 while play:
+    clock.tick(config.FRAMERATE)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             play = False
@@ -22,3 +23,4 @@ while play:
     clock.tick()
 
 pygame.quit()
+
