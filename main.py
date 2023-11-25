@@ -8,7 +8,9 @@ HEIGHT = 450
 window = pygame.display.set_mode((WIDTH, HEIGHT))
 clock = pygame.time.Clock()
 
-img = pygame.image.load('карта.png')
+img = pygame.image.load('assets/karta.png')
+print(img.get_size())
+img = pygame.transform.scale(img, (800, 450))
 
 play = True
 while play:
