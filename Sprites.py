@@ -68,7 +68,8 @@ class Europe(Country):
 class North_America(Country):
     def __init__(self):
         super().__init__("Северная Америка", 579000000, 0, 0.75, [
-            [62,159],[35,179]
+            [62,159],[35,179],[49,203],[99,251],[139,261],[129,239],[111,246],[104,220],[139,210],[163,190]
+            ,[169,175],[127,176],[95,159]
         ])
 #       def update(self):
 #          if self.population/2 < self.infected:
