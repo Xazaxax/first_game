@@ -12,7 +12,7 @@ img = pygame.image.load('assets/karta.png')
 print(img.get_size())
 img = pygame.transform.scale(img, (800, 450))
 
-#countries = pygame.sprite.Group()
+countries = pygame.sprite.Group()
 #countries.add(Sprites.African_countries())
 #countries.add(Sprites.Kazakhstan())
 #countries.add(Sprites.Scandinavia())
