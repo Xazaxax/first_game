@@ -13,12 +13,12 @@ print(img.get_size())
 img = pygame.transform.scale(img, (800, 450))
 
 countries = pygame.sprite.Group()
-countries.add(Sprites.African_countries())
-countries.add(Sprites.Kazakhstan())
-countries.add(Sprites.Scandinavia())
-countries.add(Sprites.China())
-countries.add(Sprites.Europe())
-countries.add(Sprites.North_America())
+#countries.add(Sprites.African_countries())
+#countries.add(Sprites.Kazakhstan())
+#countries.add(Sprites.Scandinavia())
+#countries.add(Sprites.China())
+#countries.add(Sprites.Europe())
+#countries.add(Sprites.North_America())
 play = True
 while play:
     clock.tick(config.FRAMERATE)
@@ -32,4 +32,3 @@ while play:
     pygame.display.update()
 
 pygame.quit()
-
