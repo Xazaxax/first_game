@@ -13,7 +13,7 @@ print(img.get_size())
 img = pygame.transform.scale(img, (800, 450))
 
 countries = pygame.sprite.Group()
-#countries.add(Sprites.African_countries())
+#countries.add(Sprites.Africa())
 #countries.add(Sprites.Kazakhstan())
 #countries.add(Sprites.Scandinavia())
 #countries.add(Sprites.China())
