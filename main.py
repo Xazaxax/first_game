@@ -31,6 +31,8 @@ while play:
         if event.type == pygame.QUIT:
             play = False
 
+    countries.update()
+
     window.blit(img, (0,0))
     for country in countries.sprites():
         country.draw(window)

@@ -1,5 +1,6 @@
 import utils
 import pygame
+import config
 
 
 class Country(pygame.sprite.Sprite):
@@ -12,27 +13,16 @@ class Country(pygame.sprite.Sprite):
         self.polygon = polygon
 
     def update(self):
-        def point_in_polygon(point: list[int, int] | tuple[int, int], polygon: list[list[int, int]]) -> bool:
-            x, y = point
-            n = len(polygon)
-            inside = False
-            p1x, p1y = polygon[0]
-            xinters = 0.0
-            for i in range(n + 1):
-                p2x, p2y = polygon[i % n]
-                if y > min(p1y, p2y):
-                    if y <= max(p1y, p2y):
-                        if x <= max(p1x, p2x):
-                            if p1y != p2y:
-                                xinters = (y - p1y) * (p2x - p1x) / (p2y - p1y) + p1x
-                            if p1x == p2x or x <= xinters:
-                                inside = not inside
-                p1x, p1y = p2x, p2y
-            return inside
+        if config.start:
+            if pygame.mouse.get_pressed()[0]:
+                cords = pygame.mouse.get_pos()
+                if utils.point_in_polygon(cords, self.polygon):
+                    config.start = False
+                    self.sicked += self.people // 4
 
     def draw(self, screen: pygame.Surface):
 
-        percent_sicked = int((1/10) * 255)
+        percent_sicked = int((self.sicked / self.people) * 255)
 
         utils.draw_polygon_alpha(
             screen,
@@ -53,7 +43,7 @@ class Mongolia(Country):
     def __init__(self):
         super().__init__("Монголия", 3400948, 0, 0.45, [
             [552, 207], [561, 208], [562, 213], [573, 213], [586, 213], [606, 203], [599, 197], [594, 196], [585, 196],
-            [579, 194], [568, 191], [563, 196], [558, 196], [548,197]
+            [579, 194], [568, 191], [563, 196], [558, 196], [548, 197]
         ])
 
 
